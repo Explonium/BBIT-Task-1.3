@@ -1,1 +1,71 @@
-<p>apartment-list works!</p>
+<h1 class="text-center display-4">Buildings list</h1>
+<form novalidate #form="ngForm" (submit)="onSubmit(form)">
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Number</th>
+                <th>Floor</th>
+                <th>Number of rooms</th>
+                <th>Number of tenants</th>
+                <th>Full area</th>
+                <th>Living space</th>
+                <th>Building</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><i class="far fa-building"></i></td>
+                <td>
+                    <input class="form-control form-control-sm" placeholder="Apartment number" type="number"
+                        name="number" #number="ngModel" [(ngModel)]="apartment.number" required
+                        [class.invalid]="number.invalid && number.dirty">
+                </td>
+
+                <td>
+                    <input class="form-control form-control-sm" placeholder="Floor" type="number" name="floor"
+                        #floor="ngModel" [(ngModel)]="apartment.floor" required
+                        [class.invalid]="floor.invalid && floor.dirty">
+                </td>
+                <td>
+                    <input class="form-control form-control-sm" placeholder="Number of floors" type="number"
+                        name="numberOfFloors" #numberOfFloors="ngModel" [(ngModel)]="apartment.numberOfRooms" required
+                        [class.invalid]="numberOfFloors.invalid && numberOfFloors.dirty">
+                </td>
+                <td>
+                    <input class="form-control form-control-sm" placeholder="Number of tenants" type="number"
+                        name="numberOfTenants" #numberOfTenants="ngModel" [(ngModel)]="apartment.numberOfTenants"
+                        required [class.invalid]="numberOfTenants.invalid && numberOfTenants.dirty">
+                </td>
+                <td>
+                    <input class="form-control form-control-sm" placeholder="Full area" type="number" name="fullArea"
+                        #fullArea="ngModel" [(ngModel)]="apartment.fullArea" required
+                        [class.invalid]="fullArea.invalid && fullArea.dirty">
+                </td>
+                <td>
+                    <input class="form-control form-control-sm" placeholder="Living space" type="number"
+                        name="livingSpace" #livingSpace="ngModel" [(ngModel)]="apartment.livingSpace" required
+                        [class.invalid]="livingSpace.invalid && livingSpace.dirty">
+                </td>
+                <td>
+                    <select class="form-select form-select-sm" placeholder="Building" name="buildingId"
+                        #buildingId="ngModel" [(ngModel)]="apartment.buildingId" required
+                        [class.invalid]="buildingId.invalid && buildingId.dirty">
+                        <option *ngFor="let item of buildings.list" [value]="item.id"
+                            [innerHTML]="item.street + ' ' + item.number + ', ' + item.city + ', ' + item.country">
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    <div class='btn-group btn-group-toggle' data-toggle='buttons'>
+                        <button class='btn btn-light btn-sm btn-block' (click)="onSave()">
+                            <i class="fas fa-save text-primary"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr *ngFor="let item of service.list" app-apartment-item [apartment]="item"></tr>
+        </tbody>
+    </table>
+</form>

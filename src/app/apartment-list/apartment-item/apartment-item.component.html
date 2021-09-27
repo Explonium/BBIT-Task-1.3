@@ -1,1 +1,68 @@
-<p>apartment-item works!</p>
+<td (click)="onClick()" (dblclick)="onDoubleClick()"><i class="far fa-building"></i></td>
+
+<td (click)="onClick()" (dblclick)="onDoubleClick()">
+    <div class="input">
+        <span [innerHTML]="apartment.number" name="number" [class.hidden]="edit"></span>
+        <input type="number" class="form-control form-control-sm" [class.hidden]="!edit" placeholder="Apartment number"
+            name="number" #number="ngModel" [(ngModel)]="apartment.number" required
+            [class.invalid]="number.invalid && number.dirty">
+    </div>
+</td>
+<td (click)="onClick()" (dblclick)="onDoubleClick()">
+    <span [innerHTML]="apartment.floor" name="floor" [class.hidden]="edit"></span>
+    <input type="number"class="form-control form-control-sm" [class.hidden]="!edit" placeholder="Apartment floor"
+        name="floor" #floor="ngModel" [(ngModel)]="apartment.floor" required
+        [class.invalid]="floor.invalid && floor.dirty">
+</td>
+<td (click)="onClick()" (dblclick)="onDoubleClick()">
+    <span [innerHTML]="apartment.numberOfRooms" name="numberOfRooms" [class.hidden]="edit"></span>
+    <input type="number" class="form-control form-control-sm" [class.hidden]="!edit"
+        placeholder="Apartment numberOfRooms" name="numberOfRooms" #numberOfRooms="ngModel"
+        [(ngModel)]="apartment.numberOfRooms" required [class.invalid]="numberOfRooms.invalid && numberOfRooms.dirty">
+</td>
+<td (click)="onClick()" (dblclick)="onDoubleClick()">
+    <span [innerHTML]="apartment.numberOfTenants" name="numberOfTenants" [class.hidden]="edit"></span>
+    <input type="number" class="form-control form-control-sm" [class.hidden]="!edit"
+        placeholder="Apartment numberOfTenants" name="numberOfTenants" #numberOfTenants="ngModel"
+        [(ngModel)]="apartment.numberOfTenants" required
+        [class.invalid]="numberOfTenants.invalid && numberOfTenants.dirty">
+</td>
+<td (click)="onClick()" (dblclick)="onDoubleClick()">
+    <span [innerHTML]="apartment.fullArea" name="fullArea" [class.hidden]="edit"></span>
+    <input type="number" class="form-control form-control-sm" [class.hidden]="!edit" placeholder="Apartment fullArea"
+        name="fullArea" #fullArea="ngModel" [(ngModel)]="apartment.fullArea" required
+        [class.invalid]="fullArea.invalid && fullArea.dirty">
+</td>
+<td (click)="onClick()" (dblclick)="onDoubleClick()">
+    <span [innerHTML]="apartment.livingSpace" name="livingSpace" [class.hidden]="edit"></span>
+    <input type="number" class="form-control form-control-sm" [class.hidden]="!edit"
+        placeholder="Apartment livingSpace" name="livingSpace" #livingSpace="ngModel"
+        [(ngModel)]="apartment.livingSpace" required [class.invalid]="livingSpace.invalid && livingSpace.dirty">
+</td>
+<td>
+    <span [innerHTML]="getCurrentBuildingName()" name="livingSpace" [class.hidden]="edit"></span>
+    <select class="form-select form-select-sm" [class.hidden]="!edit" placeholder="Building" name="buildingId"
+        #buildingId="ngModel" [(ngModel)]="apartment.buildingId" required
+        [class.invalid]="buildingId.invalid && buildingId.dirty">
+        <option *ngFor="let item of buildings.list" [value]="item.id" [selected]="apartment.buildingId === item.id"
+            [innerHTML]="getBuildingName(item)">
+        </option>
+    </select>
+</td>
+
+<td>
+    <div class='btn-group btn-group-toggle' data-toggle='buttons'>
+        <button class='btn btn-light btn-sm btn-block' (click)="onSave()">
+            <i class="fas fa-save text-primary"></i>
+        </button>
+        <button class='btn btn-light btn-sm btn-block' (click)="onCopy()">
+            <i class="far fa-copy text-info"></i>
+        </button>
+        <button class='btn btn-light btn-sm btn-block' (click)="onEdit()">
+            <i class='far fa-edit text-success'></i>
+        </button>
+        <button class='btn btn-light btn-sm btn-block' (click)="onDelete()">
+            <i class='far fa-trash-alt text-danger'></i>
+        </button>
+    </div>
+</td>

@@ -1,8 +1,8 @@
 export class Tenant {
-    PersonalCode: string = '';
-    Name: string = '';
-    DateOfBirth: Date = new Date();
-    Phone: string = '';
-    Email: string = '';
-    ApartmentId: string = '';
+    personalCode: string = '';
+    name: string = '';
+    dateOfBirth: Date = new Date();
+    phone: string = '';
+    email: string = '';
+    apartmentId: string = '';
 }

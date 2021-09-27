@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,12 @@ import { TenantListComponent } from './tenant-list/tenant-list.component';
 import { TenantItemComponent } from './tenant-list/tenant-item/tenant-item.component';
 import { TenantFormComponent } from './tenant-list/tenant-form/tenant-form.component';
 import { TenantDetailsComponent } from './tenant-list/tenant-details/tenant-details.component';
+
+const routes: Routes = [
+  { path: 'buildings', component: BuildingListComponent },
+  { path: 'apartments', component: ApartmentListComponent },
+  { path: 'tenants', component: TenantListComponent }
+];
 
 @NgModule({
   declarations: [

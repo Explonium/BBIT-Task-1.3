@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ApartmentFormService } from '../shared/apartment-form.service';
+import { BuildingFormService } from '../shared/building-form.service';
+import { Apartment } from '../shared/models/apartment.model';
 
 @Component({
   selector: 'app-apartment-list',
@@ -7,9 +11,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApartmentListComponent implements OnInit {
 
-  constructor() { }
+  apartment: Apartment = new Apartment();
+
+  constructor(public service: ApartmentFormService, public buildings: BuildingFormService) { }
 
   ngOnInit(): void {
+    this.service.refreshList();
+    this.buildings.refreshList();
+  }
+
+  onSubmit(form: NgForm){
+    
+  }
+
+  onSave(): void{
+    this.service.postApartment(this.apartment).subscribe(
+      res => {
+        this.service.refreshList();
+        this.apartment = new Apartment();
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
 }
