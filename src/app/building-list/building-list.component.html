@@ -1,0 +1,55 @@
+<h1 class="text-center display-4">Buildings list</h1>
+<form novalidate #form="ngForm" (submit)="onSubmit(form)">
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Number</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Postal Index</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><i class="far fa-building"></i></td>
+                <td>
+                    <input class="form-control form-control-sm" placeholder="Building number"
+                        name="number" #number="ngModel" [(ngModel)]="building.number" required
+                        [class.invalid]="number.invalid && number.dirty">
+                </td>
+
+                <td>
+                    <input class="form-control form-control-sm" placeholder="Building number"
+                        name="street" #street="ngModel" [(ngModel)]="building.street" required
+                        [class.invalid]="street.invalid && street.dirty">
+                </td>
+                <td>
+                    <input class="form-control form-control-sm" placeholder="Building number"
+                        name="city" #city="ngModel" [(ngModel)]="building.city" required
+                        [class.invalid]="city.invalid && city.dirty">
+                </td>
+                <td>
+                    <input class="form-control form-control-sm" placeholder="Building number"
+                        name="country" #country="ngModel" [(ngModel)]="building.country" required
+                        [class.invalid]="country.invalid && country.dirty">
+                </td>
+                <td>
+                    <input class="form-control form-control-sm" placeholder="Building number"
+                        name="postalIndex" #postalIndex="ngModel" [(ngModel)]="building.postalIndex" required
+                        [class.invalid]="postalIndex.invalid && postalIndex.dirty">
+                </td>
+                <td>
+                    <div class='btn-group btn-group-toggle' data-toggle='buttons'>
+                        <button class='btn btn-light btn-sm btn-block' (click)="onSave()">
+                            <i class="fas fa-save text-primary"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr *ngFor="let item of service.list" app-building-list-item [building]="item"></tr>
+        </tbody>
+    </table>
+</form>

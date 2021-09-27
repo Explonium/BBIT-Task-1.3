@@ -1,4 +1,4 @@
-export class BuildingDetail {
+export class Building {
     id: string = '';
     number: string = '';
     street: string = '';

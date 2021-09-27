@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/BBIT-Task-Angular'),
+      dir: require('path').join(__dirname, './coverage/BBIT-Task-Angular-att2'),
       subdir: '.',
       reporters: [
         { type: 'html' },

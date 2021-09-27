@@ -1,0 +1,44 @@
+<td (click)="onClick()" (dblclick)="onDoubleClick()"><i class="far fa-building"></i></td>
+<td (click)="onClick()" (dblclick)="onDoubleClick()">
+    <span [innerHTML]="building.number" name="number" [class.hidden]="edit"></span>
+    <input class="form-control form-control-sm" [class.hidden]="!edit" placeholder="Building number" name="number"
+        #number="ngModel" [(ngModel)]="building.number" required [class.invalid]="number.invalid && number.dirty">
+</td>
+
+<td (click)="onClick()" (dblclick)="onDoubleClick()">
+    <span [innerHTML]="building.street" [class.hidden]="edit"></span>
+    <input class="form-control form-control-sm" [class.hidden]="!edit" placeholder="Building number" name="street"
+        #street="ngModel" [(ngModel)]="building.street" required [class.invalid]="street.invalid && street.dirty">
+</td>
+<td (click)="onClick()" (dblclick)="onDoubleClick()">
+    <span [innerHTML]="building.city" [class.hidden]="edit"></span>
+    <input class="form-control form-control-sm" [class.hidden]="!edit" placeholder="Building number" name="city"
+        #city="ngModel" [(ngModel)]="building.city" required [class.invalid]="city.invalid && city.dirty">
+</td>
+<td (click)="onClick()" (dblclick)="onDoubleClick()">
+    <span [innerHTML]="building.country" [class.hidden]="edit"></span>
+    <input class="form-control form-control-sm" [class.hidden]="!edit" placeholder="Building number" name="country"
+        #country="ngModel" [(ngModel)]="building.country" required [class.invalid]="country.invalid && country.dirty">
+</td>
+<td (click)="onClick()" (dblclick)="onDoubleClick()">
+    <span [innerHTML]="building.postalIndex" [class.hidden]="edit"></span>
+    <input class="form-control form-control-sm" [class.hidden]="!edit" placeholder="Building number" name="postalIndex"
+        #postalIndex="ngModel" [(ngModel)]="building.postalIndex" required
+        [class.invalid]="postalIndex.invalid && postalIndex.dirty">
+</td>
+<td>
+    <div class='btn-group btn-group-toggle' data-toggle='buttons'>
+        <button class='btn btn-light btn-sm btn-block' (click)="onSave()">
+            <i class="fas fa-save text-primary"></i>
+        </button>
+        <button class='btn btn-light btn-sm btn-block' (click)="onCopy()">
+            <i class="far fa-copy text-info"></i>
+        </button>
+        <button class='btn btn-light btn-sm btn-block' (click)="onEdit()">
+            <i class='far fa-edit text-success'></i>
+        </button>
+        <button class='btn btn-light btn-sm btn-block' (click)="onDelete()">
+            <i class='far fa-trash-alt text-danger'></i>
+        </button>
+    </div>
+</td>

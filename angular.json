@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "BBIT-Task-Angular": {
+    "BBIT-Task-Angular-att2": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/BBIT-Task-Angular",
+            "outputPath": "dist/BBIT-Task-Angular-att2",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "BBIT-Task-Angular:build:production"
+              "browserTarget": "BBIT-Task-Angular-att2:build:production"
             },
             "development": {
-              "browserTarget": "BBIT-Task-Angular:build:development"
+              "browserTarget": "BBIT-Task-Angular-att2:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "BBIT-Task-Angular:build"
+            "browserTarget": "BBIT-Task-Angular-att2:build"
           }
         },
         "test": {
@@ -102,5 +102,5 @@
       }
     }
   },
-  "defaultProject": "BBIT-Task-Angular"
+  "defaultProject": "BBIT-Task-Angular-att2"
 }
