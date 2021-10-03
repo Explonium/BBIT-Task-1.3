@@ -1,0 +1,7 @@
+<td (click)="onClick()" (dblclick)="onDoubleClick()">
+    <i [class]="formModel.icon"></i>
+    <app-list-form [formModel]="formModel" [visible]="edit"
+    [onClick]="onClick" [onDoubleClick]="onDoubleClick" #formWrapper></app-list-form>
+</td>
+
+<ng-content *ngTemplateOutlet="formWrapper.template"></ng-content>

@@ -1,32 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Building } from './models/building.model';
-import { NgForm } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { ApiService } from './api.service';
+import { Form } from './models/form.model';
+import { BuildingForm } from './models/building-form.model';
+import { FormInput } from './models/input.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BuildingFormService {
 
-  readonly baseUrl: string = "https://localhost:44357/api/Buildings";
+  readonly path: string = "Buildings";
   list: Building[] = new Array();
 
-  constructor(private http: HttpClient) { }
+  constructor(private api: ApiService) { }
 
-  postBuilding(formData: Building) {
-    return this.http.post(this.baseUrl, formData);
-  }
+  refreshList = () => {
+    this.list = new Array();
 
-  putBuilding(formData: Building){
-    return this.http.put(`${this.baseUrl}/${formData.id}`, formData);
-  }
-
-  deleteBuilding(formData: Building){
-    return this.http.delete(`${this.baseUrl}/${formData.id}`);
-  }
-
-  refreshList() {
-    this.http.get(this.baseUrl)
+    this.api.get(this.path)
       .toPromise()
       .then(res => this.list = res as Building[]);
   }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ApiService } from './api.service';
 import { Apartment } from './models/apartment.model';
 
 @Injectable({
@@ -7,25 +8,13 @@ import { Apartment } from './models/apartment.model';
 })
 export class ApartmentFormService {
 
-  readonly baseUrl: string = "https://localhost:44357/api/Apartments";
+  readonly path: string = "Apartments";
   list: Apartment[] = new Array();
 
-  constructor(private http: HttpClient) { }
-
-  postApartment(formData: Apartment) {
-    return this.http.post(this.baseUrl, formData);
-  }
-
-  putApartment(formData: Apartment){
-    return this.http.put(`${this.baseUrl}/${formData.guid}`, formData);
-  }
-
-  deleteApartment(formData: Apartment){
-    return this.http.delete(`${this.baseUrl}/${formData.guid}`);
-  }
+  constructor(private api: ApiService) { }
 
   refreshList() {
-    this.http.get(this.baseUrl)
+    this.api.get(this.path)
       .toPromise()
       .then(res => this.list = res as Apartment[]);
   }

@@ -1,0 +1,31 @@
+<ng-template #template>
+    <ng-container *ngFor="let item of formModel.inputs">
+        <td *ngIf="item.type != 'hidden'" app-input [data]="item" [model]="formModel.model" [visible]="formModel.edit"
+        (click)="onClick()" (dblclick)="onDoubleClick()"></td>
+    </ng-container>
+
+    <td *ngIf="formModel.type == 'create'">
+        <div class='btn-group btn-group-toggle' data-toggle='buttons'>
+            <button class='btn btn-light btn-sm btn-block' (click)="onSave()">
+                <i class="fas fa-save text-primary"></i>
+            </button>
+        </div>
+    </td>
+
+    <td *ngIf="formModel.type == 'edit'">
+        <div class='btn-group btn-group-toggle' data-toggle='buttons'>
+            <button class='btn btn-light btn-sm btn-block' (click)="onPut()">
+                <i class="fas fa-save text-primary"></i>
+            </button>
+            <button class='btn btn-light btn-sm btn-block' (click)="onPost()">
+                <i class="far fa-copy text-info"></i>
+            </button>
+            <button class='btn btn-light btn-sm btn-block' (click)="onEdit()">
+                <i class='far fa-edit text-success'></i>
+            </button>
+            <button class='btn btn-light btn-sm btn-block' (click)="onDelete()">
+                <i class='far fa-trash-alt text-danger'></i>
+            </button>
+        </div>
+    </td>
+</ng-template>
