@@ -2,8 +2,10 @@ import { FormData } from "./form-data.model";
 
 export class BuildingForm extends FormData {
     path = "Buildings";
+    listPath = "/buildings";
+    detailsPath = "/building-details";
 
-    data = [
+    inputs = [
         { type: "hidden", name: "id", placeholder: "Building id" },
         { type: "text", name: "number", placeholder: "Building number" },
         { type: "text", name: "street", placeholder: "Street" },

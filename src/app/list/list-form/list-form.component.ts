@@ -24,6 +24,7 @@ export class BuildingFormComponent implements OnInit {
   onSave(): void{
     this.api.postModel(this.formModel).subscribe(
       res => {
+        debugger;
         this.onSuccess();
       },
       err => {
@@ -35,6 +36,7 @@ export class BuildingFormComponent implements OnInit {
   onPost(): void {
     this.api.postModel(this.formModel).subscribe(
       res => {
+        debugger;
         this.onSuccess();
       },
       err => {
@@ -46,6 +48,7 @@ export class BuildingFormComponent implements OnInit {
   onPut() {
     this.api.putModel(this.formModel).subscribe(
       res => {
+        debugger;
         this.onSuccess();
       },
       err => {
@@ -61,6 +64,7 @@ export class BuildingFormComponent implements OnInit {
   onDelete() {
     this.api.deleteModel(this.formModel).subscribe(
       res => {
+        debugger;
         this.onSuccess();
       },
       err => {

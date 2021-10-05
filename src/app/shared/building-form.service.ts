@@ -12,14 +12,20 @@ export class BuildingFormService {
 
   readonly path: string = "Buildings";
   list: Building[] = new Array();
+  formInfo: BuildingForm = new BuildingForm();
+  subscriber: () => void;
 
   constructor(private api: ApiService) { }
 
-  refreshList = () => {
-    this.list = new Array();
+  getBuildingFormDetails = () => {
+    return this.formInfo;
+  }
 
-    this.api.get(this.path)
+  refreshList = () => {
+    return this.api.get(this.path)
       .toPromise()
-      .then(res => this.list = res as Building[]);
+      .then(res => {
+        this.list = res as Building[];
+      });
   }
 }

@@ -1,6 +1,11 @@
+import { FormInput } from "./input.model";
+
 export class FormData {
     path: string;
-    data: Array<object>;
+    listPath: string;
+    detailsPath: string;
+
+    inputs: Array<FormInput>;
     idFieldName: string;
     icon: string;
 }

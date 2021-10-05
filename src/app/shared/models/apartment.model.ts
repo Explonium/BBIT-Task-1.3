@@ -1,3 +1,5 @@
+import { Building } from "./building.model";
+
 export class Apartment {
     guid: string = '';
     number: number;
@@ -7,4 +9,5 @@ export class Apartment {
     fullArea: number;
     livingSpace: number;
     buildingId: string = '';
+    buildingsList: Building[];
 }

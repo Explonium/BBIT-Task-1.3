@@ -12,12 +12,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { InputComponent } from './form/input/input.component';
 import { TenantListComponent } from './tenant-list/tenant-list.component';
 import { TenantDetailsComponent } from './tenant-list/tenant-details/tenant-details.component';
-import { InputNumberComponent } from './form/input-number/input-number.component';
 import { SelectComponent } from './form/select/select.component';
 import { BuildingListComponent } from './building-list/building-list.component';
 import { BuildingDetailsComponent } from './building-list/building-details/building-details.component';
 import { ApartmentListComponent } from './apartment-list/apartment-list.component';
 import { ApartmentDetailsComponent } from './apartment-list/apartment-details/apartment-details.component';
+import { InputTextComponent } from './form/input-text/input-text.component';
+import { InputNumberComponent } from './form/input-number/input-number.component';
+import { DetailsFormComponent } from './details-form/details-form.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +30,14 @@ import { ApartmentDetailsComponent } from './apartment-list/apartment-details/ap
     InputComponent,
     TenantListComponent,
     TenantDetailsComponent,
-    InputNumberComponent,
     SelectComponent,
     BuildingListComponent,
     BuildingDetailsComponent,
     ApartmentListComponent,
-    ApartmentDetailsComponent
+    ApartmentDetailsComponent,
+    InputTextComponent,
+    InputNumberComponent,
+    DetailsFormComponent
   ],
   imports: [
     BrowserModule,

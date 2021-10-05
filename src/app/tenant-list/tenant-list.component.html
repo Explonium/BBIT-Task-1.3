@@ -1,1 +1,2 @@
-<p>tenant-list works!</p>
+<h1 class="text-center display-4">Tenants list</h1>
+<app-list [list]="service.list" [defaultModel]="service.newTenant()" [formInfo]="formInfo" (refreshList)="service.refreshList()"></app-list>

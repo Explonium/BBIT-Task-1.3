@@ -1,10 +1,8 @@
-<span [innerHTML]="model[data.name]" [class.hidden]="visible"></span>
-<div class="input">
-    <input *ngIf="data.type == 'text'" class="form-control form-control-sm" [class.hidden]="!visible"
-        [placeholder]="data.placeholder" [name]="data.name" #item="ngModel" [(ngModel)]="model[data.name]"
-        (ngModelChange)="onChange()" required [class.invalid]="item.invalid && item.dirty">
+<app-input-text *ngIf="inputModel.type == 'text'" [inputModel]="inputModel" [model]="model" [visible]="visible">
+</app-input-text>
 
-    <input *ngIf="data.type == 'number'" type="number" class="form-control form-control-sm" [class.hidden]="!visible"
-        [placeholder]="data.placeholder" [name]="data.name" #item="ngModel" [(ngModel)]="model[data.name]"
-        (ngModelChange)="onChange()" required [class.invalid]="item.invalid && item.dirty">
-</div>
+<app-input-number *ngIf="inputModel.type == 'number'" [inputModel]="inputModel" [model]="model" [visible]="visible">
+</app-input-number>
+
+<app-select *ngIf="inputModel.type == 'select'" [inputModel]="toFormSelect(inputModel)" [model]="model"
+    [visible]="visible"></app-select>

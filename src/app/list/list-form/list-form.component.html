@@ -1,12 +1,12 @@
 <ng-template #template>
-    <ng-container *ngFor="let item of formModel.inputs">
-        <td *ngIf="item.type != 'hidden'" app-input [data]="item" [model]="formModel.model" [visible]="formModel.edit"
+    <ng-container *ngFor="let item of formModel.data.inputs">
+        <td *ngIf="item.type != 'hidden'" app-input [inputModel]="item" [model]="formModel.model" [visible]="formModel.edit"
         (click)="onClick()" (dblclick)="onDoubleClick()"></td>
     </ng-container>
 
     <td *ngIf="formModel.type == 'create'">
         <div class='btn-group btn-group-toggle' data-toggle='buttons'>
-            <button class='btn btn-light btn-sm btn-block' (click)="onSave()">
+            <button class='btn btn-light btn-sm btn-block' (click)="onPost()">
                 <i class="fas fa-save text-primary"></i>
             </button>
         </div>

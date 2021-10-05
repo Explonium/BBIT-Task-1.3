@@ -14,6 +14,7 @@ export class ListComponent implements OnInit {
 
   @Input() list: Array<object>;
   @Input() formInfo: FormData = new FormData();
+  @Input() defaultModel: {[index: string]: any};
 
   formModel: Form;
 
@@ -22,13 +23,14 @@ export class ListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.formModel = new Form({}, this.formInfo);
+    this.formModel = new Form(this.defaultModel, this.formInfo);
     this.formModel.type = 'create';
     this.refreshList.emit();
   }
 
   onSuccess = () => {
     this.refreshList.emit();
-    this.formModel = new Form();
+    this.formModel = new Form(this.defaultModel, this.formInfo);
+    this.formModel.type = 'create';
   }
 }

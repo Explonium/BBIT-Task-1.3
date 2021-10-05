@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormInput } from 'src/app/shared/models/input.model';
+import { FormSelect } from 'src/app/shared/models/select.model';
 
 @Component({
   selector: '[app-input]',
@@ -7,7 +8,7 @@ import { FormInput } from 'src/app/shared/models/input.model';
 })
 export class InputComponent implements OnInit {
 
-  @Input() data: FormInput = new FormInput();
+  @Input() inputModel: FormInput = new FormInput();
   @Input() model: { [index: string]: any };
   @Input() visible: boolean = false;
 
@@ -18,5 +19,9 @@ export class InputComponent implements OnInit {
 
   onChange() {
 
+  }
+
+  toFormSelect(inputModel: FormInput) {
+    return inputModel as FormSelect;
   }
 }

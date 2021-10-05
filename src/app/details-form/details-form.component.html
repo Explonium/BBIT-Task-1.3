@@ -1,0 +1,27 @@
+<div class="row justify-content-center">
+    <div class="col-sm-2 d-flex">
+            <i class="display-1 m-auto" [class]="formModel.data.icon"></i>
+    </div>
+    <div class="col-sm-4">
+        <ng-container *ngFor="let item of formModel.data.inputs">
+            <div class="form-group row m-1" *ngIf="item.type != 'hidden'">
+                <div class="col-sm-4">
+                    {{item.placeholder}}:
+                </div>
+                <div class="col-sm" app-input [visible]="formModel.edit" [inputModel]="item" [model]="formModel.model"></div>
+            </div>
+        </ng-container>
+        <div class="form-group row mx-1 my-3">
+            <div class="col-sm-4">
+                <input type="submit" (click)="onSave()" class="btn btn-outline-primary w-100" value="Save" />
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-outline-success w-100" (click)="onEdit()">Edit</button>
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-outline-danger w-100" (click)="onDelete()">Delete</button>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,1 +1,6 @@
-<p>apartment-details works!</p>
+<h1 class="text-center display-4">Apartment details</h1>
+<app-details-form [formModel]="formModel"></app-details-form>
+
+<h1 class="text-center display-4">Tenants inside</h1>
+<app-list [list]="tenants.list" [defaultModel]="getDefaultModel()" [formInfo]="tenants.getTenantFormDetails()"
+    (refreshList)="tenants.refreshListByApartment(formModel.model.guid)"></app-list>

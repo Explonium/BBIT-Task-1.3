@@ -3,7 +3,7 @@
         <thead>
             <tr>
                 <th></th>
-                <ng-container *ngFor="let item of formModel.inputs">
+                <ng-container *ngFor="let item of formModel.data.inputs">
                     <th *ngIf="item.type != 'hidden'">{{item.placeholder}}</th>
                 </ng-container>
                 <th></th>
@@ -12,8 +12,8 @@
         <tbody>
             <tr>
                 <td>
-                    <i [class]="formModel.icon"></i>
-                    <app-list-form [formModel]="formModel" #formWrapper></app-list-form>
+                    <i [class]="formModel.data.icon"></i>
+                    <app-list-form [formModel]="formModel" [onSuccess]="onSuccess" #formWrapper></app-list-form>
                 </td>
 
                 <ng-content *ngTemplateOutlet="formWrapper.template"></ng-content>

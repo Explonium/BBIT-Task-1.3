@@ -1,1 +1,6 @@
-<p>building-details works!</p>
+<h1 class="text-center display-4">Building details</h1>
+<app-details-form [formModel]="formModel"></app-details-form>
+
+<h1 class="text-center display-4">Apartments inside</h1>
+<app-list [list]="apartments.list" [defaultModel]="getDefaultModel()" [formInfo]="apartments.getApartmentFormDetails()"
+    (refreshList)="apartments.refreshListByBuilding(formModel.model.id)"></app-list>

@@ -15,7 +15,6 @@ table thead {
 td {
     transition: 0.3s;
     position: relative;
-    justify-content: center;
     padding: 5px;
     border: 1px solid rgba(100, 100, 255, 0.2);
     border-top: none;
@@ -31,7 +30,7 @@ td:hover {
 }
 
 th {
-    padding: 5px;
+    padding: 5px 12px;
 }
 
 tr {
@@ -44,7 +43,7 @@ tr:hover {
     cursor: pointer;
 }
 
-.input {
+td .input {
     position: absolute;
     display: inline-block;
     padding: 5px;

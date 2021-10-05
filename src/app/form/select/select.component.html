@@ -1,1 +1,11 @@
-<p>select works!</p>
+<span [innerHTML]="inputModel.getDisplayValue(inputModel.getObjectById(model[inputModel.name]))"
+    [class.hidden]="visible"></span>
+
+<div class="input">
+    <select class="form-select form-select-sm" [class.hidden]="!visible" [name]="inputModel.name" #item="ngModel"
+        [(ngModel)]="model[inputModel.name]" required [class.invalid]="item.invalid && item.dirty">
+        <option *ngFor="let item of inputModel.getList()" [value]="inputModel.getValue(item)">
+            {{inputModel.getDisplayValue(item)}}
+        </option>
+    </select>
+</div>

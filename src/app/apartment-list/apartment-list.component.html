@@ -1,1 +1,2 @@
-<p>apartment-list works!</p>
+<h1 class="text-center display-4">Apartments list</h1>
+<app-list [list]="service.list" [defaultModel]="service.newApartment()" [formInfo]="formInfo" (refreshList)="service.refreshList()"></app-list>

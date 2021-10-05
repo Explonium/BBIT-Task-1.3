@@ -1,0 +1,7 @@
+<span [innerHTML]="model[inputModel.name]" [class.hidden]="visible"></span>
+
+<div class="input">
+    <input class="form-control form-control-sm" [class.hidden]="!visible" [placeholder]="inputModel.placeholder"
+        [name]="inputModel.name" #item="ngModel" [(ngModel)]="model[inputModel.name]" required
+        [class.invalid]="item.invalid && item.dirty">
+</div>

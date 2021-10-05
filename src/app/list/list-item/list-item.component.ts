@@ -7,6 +7,7 @@ import { BuildingForm } from 'src/app/shared/models/building-form.model';
 import { FormInput } from 'src/app/shared/models/input.model';
 import { FormData } from 'src/app/shared/models/form-data.model';
 import { ApiService } from 'src/app/shared/api.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: '[app-list-item]',
@@ -15,7 +16,7 @@ import { ApiService } from 'src/app/shared/api.service';
 export class BuildingListItemComponent extends ClickOutsideHandler implements OnInit {
 
   @Input() formInfo: FormData = new FormData();
-  @Input() model: object = {};
+  @Input() model: {[index: string]: any} = {};
 
   formModel: Form;
   isSingleClick: Boolean = true;
@@ -23,7 +24,9 @@ export class BuildingListItemComponent extends ClickOutsideHandler implements On
 
   @Output() refreshList: EventEmitter<any> = new EventEmitter();
 
-  constructor(public api: ApiService) {
+  constructor(public api: ApiService,
+    private route: ActivatedRoute,
+    private router: Router) {
     super();
   }
   ngOnInit(): void {
@@ -44,10 +47,10 @@ export class BuildingListItemComponent extends ClickOutsideHandler implements On
   onClick = () => {
     this.isSingleClick = true;
     setTimeout(() => {
-      if (this.isSingleClick) {
-
+      if (this.isSingleClick && !this.formModel.edit) {
+        this.router.navigate([this.formModel.data.detailsPath, { id: this.model[this.formInfo.idFieldName] }]);
       }
-    }, 250)
+    }, 250);
   }
 
   override onClickOutside() {

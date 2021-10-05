@@ -16,7 +16,13 @@ export class ApiService {
   }
 
   getModelList(data: Form) {
-    return this.http.get(`${this.baseUrl}/${data.path}`);
+    return this.http.get(`${this.baseUrl}/${data.data.path}`);
+  }
+
+  getModelById(data: Form){
+    let path = data.data.path;
+    let id = data.model[data.data.idFieldName];
+    return this.http.get(`${this.baseUrl}/${path}/${id}`);
   }
 
   post(formData: any, path: string = "") {
@@ -24,18 +30,17 @@ export class ApiService {
   }
 
   postModel(data: Form) {
-    return this.http.post(`${this.baseUrl}/${data.path}`, data.model);
+    return this.http.post(`${this.baseUrl}/${data.data.path}`, data.model);
   }
 
   put(id: string, formData: any, path: string = "") {
     return this.http.put(`${this.baseUrl}/${path}/${id}`, formData);
   }
 
-  putModel(data: Form) {
-    let path = data.path;
-    let id = data.model[data.idFieldName];
-    debugger;
-    return this.http.put(`${this.baseUrl}/${path}/${id}`, data.model);
+  putModel(formData: Form) {
+    let path = formData.data.path;
+    let id = formData.model[formData.data.idFieldName];
+    return this.http.put(`${this.baseUrl}/${path}/${id}`, formData.model);
   }
 
   delete(id: string, path: string = "") {
@@ -43,8 +48,8 @@ export class ApiService {
   }
 
   deleteModel(data: Form) {
-    let path = data.path;
-    let id = data.model[data.idFieldName];
+    let path = data.data.path;
+    let id = data.model[data.data.idFieldName];
     return this.http.delete(`${this.baseUrl}/${path}/${id}`);
   }
 }
